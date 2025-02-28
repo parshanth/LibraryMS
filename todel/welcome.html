@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("bg.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        header {
+            color: white;
+            width: 100%;
+            height: 17%;
+            padding: 10px;
+            position: fixed; 
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.3); 
+            border-bottom: 0.5px solid white; 
+        }
+        .info {
+            width: 150px;
+            border: 1px solid white;
+            border-radius: 40px;
+            background-color: rgba(71, 55, 212, 0.3); 
+            padding: 10px;
+            margin-right: 15px;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: left;
+        }
+        .user-details {
+            display: flex;
+            align-items: center;
+            margin: 9px;
+            gap: 10px;
+        }
+        .user-details img {
+            width: 30px;
+            height: 30px;
+        }
+        .user-details p {
+            margin-left: 4px;
+        }
+        .user-type {
+            margin-top: 1px;
+        }
+        #ult {
+            margin-left: 11px;
+            font-size: 15px;
+        }
+        .info:hover {
+            background-color: rgba(11, 6, 53, 0.3);
+        }
+        button {
+            background: linear-gradient(45deg, #28a745, #007b19);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            height: 100px;
+            width: 180px;
+            transition: background-color 0.3s ease;
+            position: relative;
+            top: 12px;
+            left: 70px;
+            font-size: 23px;
+            font-family: "Poppins", sans-serif;
+            font-weight: bold;
+        }
+        button:hover {
+            background: linear-gradient(45deg, #196a29, #28a745);
+        }
+        .log{
+            background: #136d25;
+            position:absolute;
+            height:40px;
+            width:100px;
+            top:50px;
+            left:78%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .log a{
+            color:#ffff;
+            font-size:14px;
+            text-decoration:none;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button onclick="window.location.href='borrowBook.html'">Borrow</button>
+        <button onclick="window.location.href='returnBook.html'">Return</button>
+        <button class="log"><a href="index.html">Logout</a></button>
+
+        <div class="info">
+            <div class="user-details">
+                <img src="images/user.png" alt="user">
+                <p>User Name</p>
+            </div>
+            <p id="ult" class="user-type">User : UserType</p>
+        </div>
+    </header>
+    <div class="show">
+        <h2>Available Books</h2>
+        <table border="1">
+            <tr>
+                <th>Book ID</th>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Availability</th>
+            </tr>
+            <%
+                String url = "jdbc:mysql://localhost:3306/login";
+                String username = "root";
+                String password = "Appu@2005";
+    
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection conn = DriverManager.getConnection(url, username, password);
+                String query = "SELECT * FROM books";
+                PreparedStatement stmt = conn.prepareStatement(query);
+                ResultSet rs = stmt.executeQuery();
+    
+                while (rs.next()) {
+            %>
+            <tr>
+                <td><%= rs.getInt("book_id") %></td>
+                <td><%= rs.getString("book_name") %></td>
+                <td><%= rs.getString("author_name") %></td>
+                <td><%= rs.getInt("avail") %></td>
+            </tr>
+            <%
+                }
+                conn.close();
+            %>
+        </table>
+        <br>
+        </div>
+    </body>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+			background-image: url("images/bg.jpg");
+			background-size:cover;
+			background-repeat:no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        form {
+            background: rgba(78, 82, 137, 0.4);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+           	margin-bottom: 20px;
+    		color:#ffff;
+    		font-size: 24px;
+    		font-weight: 900;
+   		 	text-transform: uppercase;
+     		letter-spacing: 1px;
+		}
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: left;
+            color: #ffffff;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 96%;
+            padding: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        p {
+        	color:#808080;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <form action="LoginServlet" method="POST">
+        <h2>Login</h2>
+        
+        <label>Name:</label>
+        <input type="text" name="name" required>
+        
+        <label>Password:</label>
+        <input type="password" name="password" required>
+
+        <input type="submit" value="Login">
+        
+        <p>New user? <a href="register.html">Register here</a></p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("images/bg.jpg"); /* Adjust path */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        form {
+            background: rgba(255, 255, 255, 0.2); /* Transparent white */
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            backdrop-filter: blur(5px); /* Blur effect */
+        }
+        h2 {
+           	margin-bottom: 20px;
+    		color:#ffff;
+    		font-size: 24px;
+    		font-weight: 900;
+   		 	text-transform: uppercase;
+     		letter-spacing: 1px;
+     		margin-bottom:30px;
+		}
+        label {
+            display: block;
+            color:#ffff;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 94%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.6);
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            margin-top:10px;
+            padding: 10px;
+            width: 50%;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        p {
+        	color:#808080;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        a {
+            color: #ffff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <form action="RegisterServlet" method="POST">
+        <h2>Register</h2>
+
+        <label>Name:</label>
+        <input type="text" name="firstName" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+
+        <label>Password:</label>
+        <input type="password" name="password" required>
+
+        <input type="submit" value="Register">
+        
+        <p>Already registered? <a href="index.html">Login here</a></p>
+    </form>
+</body>
+</html>
